@@ -5,6 +5,7 @@
 *.userosscache
 */.vscode/*
 */FolderExplorerOutput/*
+*-analysis.md
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
