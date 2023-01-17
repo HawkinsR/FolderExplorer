@@ -6,6 +6,7 @@
 */.vscode/*
 */FolderExplorerOutput/*
 *-analysis.md
+*.kate-swp
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
