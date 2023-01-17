@@ -8,6 +8,6 @@ Running the script on a target folder will produce a .md file (named after the t
 
 ### Options
 Try using one of the following options for customized functionality:
--v|--version Display version information
--h|--help Display help information
--f|--file Use with an argument of the target folder location to analyze folders outside of the current directory.
+- `-v|--version` Display version information
+- `-h|--help` Display help information
+- `-f|--file` Use with an argument of the target folder location to analyze folders outside of the current directory.
