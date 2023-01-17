@@ -77,29 +77,25 @@ if [ -z $FILE ]; then
     fi
 fi
 
-# ###################################
-# # Diagnostic Output
-# echo "HELP: $HELP
-# FILE: $FILE
-# VER: $VER
-# 0: $0
-# 1: $1
-# 2: $2"
-# ###################################
-
 # Derive run-from folder name to SAVE to build output directory and files
-SAVE=`realpath $0`
-SAVE=`dirname $SAVE`
+SAVE=`pwd`
 
 # Derive target folder name to DIR to be used in output file content and file names.
 FULLDIR=`realpath $FILE`
 DIR=`basename $FULLDIR`
 echo "Operating on: "$DIR
 
-# If output directory does not exist, create it.
-if [ ! -d ./FolderExplorerOutput ]; then
-    mkdir ./FolderExplorerOutput
-fi
+# ###################################
+# # Diagnostic Output
+# echo " HELP: $HELP
+# FILE: $FILE
+# VER: $VER
+# DIR: $DIR
+# SAVE: $SAVE
+# 0: $0
+# 1: $1
+# 2: $2"
+# ###################################
 
 # Set current directory to target file location
 cd $FILE
@@ -108,9 +104,10 @@ cd $FILE
 2>/dev/null
 
 # create output file, and generate initial heading for file
-echo "FolderExplorer run for: $DIR" > $SAVE/FolderExplorerOutput/$DIR.md
+echo "FolderExplorer run for: $DIR" > $SAVE/$DIR-anlysis.md
 
 # Print find output to file named after folder.
 #find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/" >> $SAVE/FolderExplorerOutput/$DIR.md
-find . -exec wc -l {} \; 2>/dev/null | sed 's|/| |g' | sed 's|^0|L|g' | awk '{for(i=1;i<NF-1;i++)printf "|  ";print $1 " " $NF}' >> $SAVE/FolderExplorerOutput/$DIR.md
+find . -exec wc -l {} \; 2>/dev/null | sed 's|/| |g' | sed 's|^0|--|g' | awk '{for(i=1;i<NF-1;i++)printf "|  ";print $1 " " $NF}' >> $SAVE/$DIR-anlysis.md
+
 exit 1
