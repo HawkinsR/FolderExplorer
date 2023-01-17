@@ -104,10 +104,10 @@ cd $FILE
 2>/dev/null
 
 # create output file, and generate initial heading for file
-echo "FolderExplorer run for: $DIR" > $SAVE/$DIR-anlysis.md
+echo "FolderExplorer run for: $DIR" > $SAVE/$DIR-analysis.md
 
 # Print find output to file named after folder.
 #find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/" >> $SAVE/FolderExplorerOutput/$DIR.md
-find . -exec wc -l {} \; 2>/dev/null | sed 's|/| |g' | sed 's|^0|--|g' | awk '{for(i=1;i<NF-1;i++)printf "|  ";print $1 " " $NF}' >> $SAVE/$DIR-anlysis.md
+find . -exec wc -l {} \; 2>/dev/null | sed 's|/| |g' | sed 's|^0|--|g' | awk '{for(i=1;i<NF-1;i++)printf "|  ";print $1 " " $NF}' >> $SAVE/$DIR-analysis.md
 
 exit 1
